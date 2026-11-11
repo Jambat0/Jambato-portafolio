@@ -1,0 +1,773 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Inter:wght@400;500;600&display=swap');
+
+
+/* ------------------------------
+   VARIABLES
+------------------------------ */
+
+:root {
+
+    --background: #0a0a0c;
+    --surface: #111116;
+    --surface-light: #18181f;
+
+    --text: #eeeeee;
+    --text-muted: #9999a3;
+
+    --accent: #b58cff;
+
+    --border: rgba(255,255,255,0.08);
+
+    --max-width: 1200px;
+
+}
+
+
+/* ------------------------------
+   RESET
+------------------------------ */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+body {
+
+    background: var(--background);
+
+    color: var(--text);
+
+    font-family: 'Inter', sans-serif;
+
+    line-height: 1.6;
+
+}
+
+
+/* ------------------------------
+   GENERAL
+------------------------------ */
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+
+.section {
+
+    max-width: var(--max-width);
+
+    margin: auto;
+
+    padding: 140px 30px;
+
+}
+
+
+.eyebrow {
+
+    color: var(--accent);
+
+    font-size: 0.75rem;
+
+    font-weight: 600;
+
+    letter-spacing: 0.2em;
+
+    margin-bottom: 20px;
+
+}
+
+
+h1,
+h2,
+h3 {
+
+    font-family: 'Cinzel', serif;
+
+}
+
+
+h2 {
+
+    font-size: clamp(2rem, 4vw, 3.5rem);
+
+    line-height: 1.2;
+
+}
+
+
+p {
+
+    color: var(--text-muted);
+
+}
+
+
+/* ------------------------------
+   NAVBAR
+------------------------------ */
+
+.navbar {
+
+    position: fixed;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+
+    z-index: 100;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    padding: 40px 40px;
+
+    background: rgba(10,10,12,0.75);
+
+    backdrop-filter: blur(12px);
+
+    border-bottom: 1px solid var(--border);
+
+}
+
+
+.logo {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    font-family: 'Cinzel', serif;
+
+    font-weight: 700;
+
+    letter-spacing: 0.15em;
+
+}
+
+
+.navbar nav {
+
+    display: flex;
+
+    gap: 35px;
+
+}
+
+
+.navbar nav a {
+
+    font-size: 0.85rem;
+
+    color: var(--text-muted);
+
+    transition: 0.3s;
+
+}
+
+
+.navbar nav a:hover {
+
+    color: var(--text);
+
+}
+
+
+/* ------------------------------
+   HERO
+------------------------------ */
+
+.hero {
+
+    min-height: 100vh;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+
+    padding: 120px 30px;
+
+    position: relative;
+
+    overflow: hidden;
+
+}
+
+
+.hero::before {
+
+    content: "";
+
+    position: absolute;
+
+    width: 700px;
+
+    height: 700px;
+
+    background: radial-gradient(
+        circle,
+        rgba(181,140,255,0.12),
+        transparent 70%
+    );
+
+    top: 50%;
+
+    left: 50%;
+
+    transform: translate(-50%, -50%);
+
+    pointer-events: none;
+
+}
+
+
+.hero-content {
+
+    max-width: 850px;
+
+    position: relative;
+
+}
+
+
+.hero h1 {
+
+    font-size: clamp(4rem, 10vw, 8rem);
+
+    line-height: 1;
+
+    margin-bottom: 25px;
+
+    letter-spacing: 0.08em;
+
+}
+
+
+.hero-description {
+
+    max-width: 650px;
+
+    margin: auto;
+
+    font-size: 1.1rem;
+
+    margin-bottom: 40px;
+
+}
+
+
+/* ------------------------------
+   BUTTON
+------------------------------ */
+
+.button {
+
+    display: inline-block;
+
+    padding: 14px 28px;
+
+    border: 1px solid var(--accent);
+
+    color: var(--text);
+
+    font-size: 0.85rem;
+
+    text-transform: uppercase;
+
+    letter-spacing: 0.1em;
+
+    transition: 0.3s;
+
+}
+
+
+.button:hover {
+
+    background: var(--accent);
+
+    color: #0a0a0c;
+
+}
+
+
+/* ------------------------------
+   SECTION HEADING
+------------------------------ */
+
+.section-heading {
+
+    max-width: 650px;
+
+    margin-bottom: 70px;
+
+}
+
+
+.section-heading > p:last-child {
+
+    margin-top: 20px;
+
+}
+
+
+/* ------------------------------
+   PROJECTS
+------------------------------ */
+
+.projects {
+
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 30px;
+
+}
+
+
+.project-card {
+
+    background: var(--surface);
+
+    border: 1px solid var(--border);
+
+    transition: transform 0.4s, border-color 0.4s;
+
+}
+
+
+.project-card:hover {
+
+    transform: translateY(-8px);
+
+    border-color: rgba(181,140,255,0.4);
+
+}
+
+
+.project-image {
+
+    aspect-ratio: 16 / 10;
+
+    overflow: hidden;
+
+}
+
+
+.project-image img {
+
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: cover;
+
+    display: block;
+
+    transition: transform 0.5s ease;
+
+}
+
+
+.project-card:hover .project-image img {
+
+    transform: scale(1.05);
+
+}
+
+
+.placeholder {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background:
+        linear-gradient(
+            135deg,
+            #14141a,
+            #20202a
+        );
+
+}
+
+
+.placeholder span {
+
+    color: #555562;
+
+    font-size: 0.75rem;
+
+    letter-spacing: 0.2em;
+
+}
+
+
+.project-info {
+
+    padding: 25px;
+
+}
+
+
+.project-category {
+
+    color: var(--accent);
+
+    font-size: 0.7rem;
+
+    letter-spacing: 0.15em;
+
+    margin-bottom: 10px;
+
+}
+
+
+.project-info h3 {
+
+    font-size: 1.4rem;
+
+    margin-bottom: 8px;
+
+}
+
+
+/* ------------------------------
+   SPECIALTIES
+------------------------------ */
+
+.specialty-grid {
+
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    border-top: 1px solid var(--border);
+
+}
+
+
+.specialty {
+
+    padding: 35px;
+
+    border-bottom: 1px solid var(--border);
+
+    transition: background 0.3s;
+
+}
+
+
+.specialty:nth-child(odd) {
+
+    border-right: 1px solid var(--border);
+
+}
+
+
+.specialty:hover {
+
+    background: var(--surface);
+
+}
+
+
+.specialty span {
+
+    color: var(--accent);
+
+    font-size: 0.75rem;
+
+}
+
+
+.specialty h3 {
+
+    margin: 15px 0 10px;
+
+    font-size: 1.4rem;
+
+}
+
+
+/* ------------------------------
+   ABOUT
+------------------------------ */
+
+.about {
+
+    display: flex;
+
+    justify-content: center;
+
+}
+
+
+.about-content {
+
+    max-width: 700px;
+
+}
+
+
+.about h2 {
+
+    margin-bottom: 30px;
+
+}
+
+
+.about-content p {
+
+    margin-bottom: 20px;
+
+}
+
+
+.tools {
+
+    display: flex;
+
+    gap: 10px;
+
+    flex-wrap: wrap;
+
+    margin-top: 30px;
+
+}
+
+
+.tools span {
+
+    padding: 8px 14px;
+
+    border: 1px solid var(--border);
+
+    font-size: 0.8rem;
+
+    color: var(--text-muted);
+
+}
+
+
+/* ------------------------------
+   CONTACT
+------------------------------ */
+
+.contact {
+
+    padding: 160px 30px;
+
+    text-align: center;
+
+    background: var(--surface);
+
+    border-top: 1px solid var(--border);
+
+    border-bottom: 1px solid var(--border);
+
+}
+
+
+.contact h2 {
+
+    margin-bottom: 20px;
+
+}
+
+
+.contact .button {
+
+    margin-top: 30px;
+
+}
+
+
+/* ------------------------------
+   FOOTER
+------------------------------ */
+
+footer {
+
+    max-width: var(--max-width);
+
+    margin: auto;
+
+    padding: 35px 30px;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    font-size: 0.75rem;
+
+}
+
+
+/* ------------------------------
+   MOBILE
+------------------------------ */
+
+@media (max-width: 700px) {
+
+    .navbar {
+
+        padding: 20px;
+
+    }
+
+
+    .navbar nav {
+
+        gap: 15px;
+
+    }
+
+
+    .navbar nav a {
+
+        font-size: 0.75rem;
+
+    }
+
+
+    .section {
+
+        padding: 30px 20px;
+
+    }
+
+
+    .projects {
+
+        grid-template-columns: 1fr;
+
+    }
+
+
+    .specialty-grid {
+
+        grid-template-columns: 1fr;
+
+    }
+
+
+    .specialty:nth-child(odd) {
+
+        border-right: none;
+
+    }
+
+
+    footer {
+
+        flex-direction: column;
+
+        gap: 10px;
+
+    }
+
+}
+
+
+/* ------------------------------
+   IMAGE LIGHTBOX
+------------------------------ */
+
+.lightbox {
+
+    display: none;
+
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 1000;
+
+    background: rgba(0, 0, 0, 0.92);
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 40px;
+
+}
+
+
+.lightbox.active {
+
+    display: flex;
+
+}
+
+
+.lightbox img {
+
+    max-width: 90vw;
+
+    max-height: 90vh;
+
+    width: auto;
+
+    height: auto;
+
+    object-fit: contain;
+
+    border-radius: 4px;
+
+}
+
+
+.lightbox-close {
+
+    position: absolute;
+
+    top: 20px;
+
+    right: 30px;
+
+    background: none;
+
+    border: none;
+
+    color: white;
+
+    font-size: 40px;
+
+    line-height: 1;
+
+    cursor: pointer;
+
+    z-index: 1001;
+
+}
+
+
+.clickable-image {
+
+    cursor: zoom-in;
+
+}
